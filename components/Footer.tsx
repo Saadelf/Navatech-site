@@ -31,8 +31,8 @@ export default function Footer() {
             <h4 className="font-semibold text-navablue mb-4 uppercase text-xs tracking-wider">Navigation</h4>
             <ul className="space-y-2 text-sm text-gray-600">
               <li><Link href={`/${lang === "en" ? "en/" : ""}solutions`} className="hover:text-navablue transition-colors">{translations[lang].nav.solutions}</Link></li>
-              <li><Link href={`/${lang === "en" ? "en/" : ""}simulateur`} className="hover:text-navablue transition-colors">{translations[lang].nav.simulator}</Link></li>
-              <li><Link href={`/${lang === "en" ? "en/" : ""}tarifs`} className="hover:text-navablue transition-colors">{translations[lang].nav.pricing}</Link></li>
+              <li><Link href={`/${lang === "en" ? "en/simulator" : "simulateur"}`} className="hover:text-navablue transition-colors">{translations[lang].nav.simulator}</Link></li>
+              <li><Link href={`/${lang === "en" ? "en/pricing" : "tarifs"}`} className="hover:text-navablue transition-colors">{translations[lang].nav.pricing}</Link></li>
               <li><Link href={`/${lang === "en" ? "en/" : ""}blog`} className="hover:text-navablue transition-colors">{translations[lang].nav.blog}</Link></li>
               <li><Link href={`/${lang === "en" ? "en/" : ""}a-propos`} className="hover:text-navablue transition-colors">{translations[lang].nav.about}</Link></li>
             </ul>

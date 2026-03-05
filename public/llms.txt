@@ -1,0 +1,30 @@
+# Navatech - Hospitality Growth Partner in Morocco
+
+Navatech turns your website, WhatsApp, and Google profile into a direct-booking engine. We help independent riads, boutique hotels, and guesthouses in Morocco reduce their dependence on Online Travel Agencies (OTAs) like Booking.com, save on commissions (15-25%), and regain control of their customer relationships.
+
+## Core Packages
+
+1. Foundation (1,500 — 8,500 MAD):
+   - Optimized FR/EN Website
+   - Google & AI Visibility (AEO)
+   - Direct WhatsApp booking flow
+   - GA4 Configuration
+
+2. Closer (9,500 — 15,500 MAD):
+   - Everything in Foundation
+   - 24/7 AI Qualification Assistant on the website
+
+3. Commander (19,500 — 28,000 MAD):
+   - Everything in Closer
+   - SmartPath integration: WhatsApp Concierge, Reviews & Upsells Automations
+
+## Free Digital Audit
+We offer a manual digital maturity audit (visibility, friction, speed). Request it at /audit or /en/audit.
+
+## Profitability Simulator
+Calculate potential savings by redirecting OTA bookings to direct channels: /simulateur or /en/simulator.
+
+## Contact
+Email: contact@navatech.pro
+WhatsApp: +212 6 59 59 50 59
+Address: 77 Rue Mohamed Smiha, ETG 8, Casablanca, Morocco

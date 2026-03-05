@@ -1,14 +1,50 @@
 "use client";
 
+import { useState } from "react";
 import { translations, Language } from "@/lib/translations";
 
-export default function AuditSection({ lang }: { lang: Language }) {
+interface AuditSectionProps {
+  lang: Language;
+  simulatorData?: string;
+}
+
+export default function AuditSection({ lang, simulatorData }: AuditSectionProps) {
   const t = translations[lang].audit;
+  const whatsappNumber = "+212659595059";
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    whatsapp: "",
+    establishment: "",
+    city: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // No backend yet
-    alert("Merci ! Nous reviendrons vers vous pour votre audit offert.");
+    
+    const baseMessage = lang === "fr" 
+      ? `Bonjour Navatech, je souhaite demander l'audit digital offert.`
+      : `Hello Navatech, I would like to request my free digital audit.`;
+
+    const details = `
+- ${t.formName}: ${formData.name}
+- ${t.formEstablishment}: ${formData.establishment}
+- ${t.formCity}: ${formData.city}
+- ${t.formEmail}: ${formData.email}
+- ${t.formWhatsapp}: ${formData.whatsapp}`;
+
+    const simResults = simulatorData ? `\n\n📊 ${lang === "fr" ? "Résultats du simulateur" : "Simulator Results"}:\n${simulatorData}` : "";
+
+    const fullMessage = `${baseMessage}\n${details}${simResults}`;
+    
+    const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/\+/g, "")}?text=${encodeURIComponent(fullMessage)}`;
+    
+    window.open(whatsappUrl, "_blank");
   };
 
   return (
@@ -24,43 +60,87 @@ export default function AuditSection({ lang }: { lang: Language }) {
             </p>
           </div>
           <div className="bg-white rounded-3xl p-8 text-navablue shadow-2xl">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-bold uppercase tracking-widest mb-2 opacity-60">
-                  {t.formName}
-                </label>
-                <input 
-                  type="text" 
-                  required 
-                  className="w-full bg-navagray rounded-xl px-4 py-4 border-none focus:ring-2 focus:ring-navablue transition-all text-navablue"
-                  placeholder="..."
-                />
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-[10px] font-bold uppercase tracking-widest mb-1 opacity-60">
+                    {t.formName}
+                  </label>
+                  <input 
+                    type="text" 
+                    name="name"
+                    required 
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full bg-navagray rounded-xl px-4 py-3 border-none focus:ring-2 focus:ring-navablue transition-all text-navablue text-sm"
+                    placeholder="..."
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-bold uppercase tracking-widest mb-1 opacity-60">
+                    {t.formEstablishment}
+                  </label>
+                  <input 
+                    type="text" 
+                    name="establishment"
+                    required 
+                    value={formData.establishment}
+                    onChange={handleChange}
+                    className="w-full bg-navagray rounded-xl px-4 py-3 border-none focus:ring-2 focus:ring-navablue transition-all text-navablue text-sm"
+                    placeholder="..."
+                  />
+                </div>
               </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-[10px] font-bold uppercase tracking-widest mb-1 opacity-60">
+                    {t.formCity}
+                  </label>
+                  <input 
+                    type="text" 
+                    name="city"
+                    required 
+                    value={formData.city}
+                    onChange={handleChange}
+                    className="w-full bg-navagray rounded-xl px-4 py-3 border-none focus:ring-2 focus:ring-navablue transition-all text-navablue text-sm"
+                    placeholder="..."
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-bold uppercase tracking-widest mb-1 opacity-60">
+                    {t.formWhatsapp}
+                  </label>
+                  <input 
+                    type="tel" 
+                    name="whatsapp"
+                    required 
+                    value={formData.whatsapp}
+                    onChange={handleChange}
+                    className="w-full bg-navagray rounded-xl px-4 py-3 border-none focus:ring-2 focus:ring-navablue transition-all text-navablue text-sm"
+                    placeholder="+212 ..."
+                  />
+                </div>
+              </div>
+
               <div>
-                <label className="block text-sm font-bold uppercase tracking-widest mb-2 opacity-60">
+                <label className="block text-[10px] font-bold uppercase tracking-widest mb-1 opacity-60">
                   {t.formEmail}
                 </label>
                 <input 
                   type="email" 
+                  name="email"
                   required 
-                  className="w-full bg-navagray rounded-xl px-4 py-4 border-none focus:ring-2 focus:ring-navablue transition-all text-navablue"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full bg-navagray rounded-xl px-4 py-3 border-none focus:ring-2 focus:ring-navablue transition-all text-navablue text-sm"
                   placeholder="..."
                 />
               </div>
-              <div>
-                <label className="block text-sm font-bold uppercase tracking-widest mb-2 opacity-60">
-                  {t.formWhatsapp}
-                </label>
-                <input 
-                  type="tel" 
-                  required 
-                  className="w-full bg-navagray rounded-xl px-4 py-4 border-none focus:ring-2 focus:ring-navablue transition-all text-navablue"
-                  placeholder="+212 ..."
-                />
-              </div>
+
               <button 
                 type="submit"
-                className="w-full bg-navablue text-white py-5 rounded-xl font-bold uppercase tracking-widest hover:opacity-90 transition-all shadow-lg shadow-navablue/20"
+                className="w-full bg-navablue text-white py-4 rounded-xl font-bold uppercase tracking-widest hover:opacity-90 transition-all shadow-lg shadow-navablue/20 mt-4"
               >
                 {t.formSubmit}
               </button>

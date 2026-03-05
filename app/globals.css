@@ -4,11 +4,11 @@
   --font-sans: var(--font-inter);
   
   --color-navablue: #050a30;
-  --color-navagray: #e7e9ec;
+  --color-navagray: #f8f9fa;
 }
 
 :root {
-  --background: #e7e9ec;
+  --background: #ffffff;
   --foreground: #050a30;
 }
 

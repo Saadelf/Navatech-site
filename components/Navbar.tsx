@@ -11,8 +11,8 @@ export default function Navbar() {
 
   const navItems = [
     { label: t.solutions, href: `/${lang === "en" ? "en/" : ""}solutions` },
-    { label: t.simulator, href: `/${lang === "en" ? "en/" : ""}simulateur` },
-    { label: t.pricing, href: `/${lang === "en" ? "en/" : ""}tarifs` },
+    { label: t.simulator, href: `/${lang === "en" ? "en/simulator" : "simulateur"}` },
+    { label: t.pricing, href: `/${lang === "en" ? "en/pricing" : "tarifs"}` },
     { label: t.blog, href: `/${lang === "en" ? "en/" : ""}blog` },
     { label: t.about, href: `/${lang === "en" ? "en/" : ""}a-propos` },
   ];
@@ -47,7 +47,7 @@ export default function Navbar() {
               {lang === "en" ? "FR" : "EN"}
             </Link>
             <Link
-              href="#audit"
+              href="/#audit"
               className="bg-navablue text-white px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-all"
             >
               {t.cta}
