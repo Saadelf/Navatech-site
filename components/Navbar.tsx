@@ -47,7 +47,7 @@ export default function Navbar() {
               {lang === "en" ? "FR" : "EN"}
             </Link>
             <Link
-              href={`/${lang === "en" ? "en/" : ""}audit`}
+              href="#audit"
               className="bg-navablue text-white px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-all"
             >
               {t.cta}

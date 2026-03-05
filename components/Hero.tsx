@@ -26,7 +26,7 @@ export default function Hero({ lang }: HeroProps) {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              href={`/${lang === "en" ? "en/" : ""}audit`}
+              href="#audit"
               className="bg-navablue text-white px-8 py-4 rounded-full text-lg font-semibold hover:opacity-90 transition-all shadow-lg shadow-navablue/20"
             >
               {t.cta}
